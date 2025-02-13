@@ -8,6 +8,10 @@
     ],
     "routes": [
         {
+            "src": "/api/auth/(.*)",
+            "dest": "src/app.js"
+        },
+        {
             "src": "/api/(.*)",
             "dest": "src/app.js"
         },
@@ -15,5 +19,8 @@
             "src": "/(.*)",
             "dest": "src/app.js"
         }
-    ]
+    ],
+    "env": {
+        "NODE_ENV": "production"
+    }
 }
