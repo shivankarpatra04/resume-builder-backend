@@ -19,13 +19,14 @@ const app = express();
 app.use(express.json()); // Ensure JSON parsing works
 app.use(cors({
     origin: process.env.NODE_ENV === 'production'
-        ? process.env.CLIENT_URL
+        ? [process.env.CLIENT_URL, 'https://resume-builder-backend-qgk9rvm1l-shivankars-projects.vercel.app']
         : ['http://localhost:5173'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
-}))
-    ;
+}));
+
+;
 // ✅ MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
